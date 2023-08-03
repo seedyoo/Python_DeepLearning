@@ -18,3 +18,4 @@ senior = 2 * total / 50
 junior = total / 50
 print(senior)
 print(junior)
+
