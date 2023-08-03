@@ -10,4 +10,12 @@ df['close_year'] = df['close_dt'].dt.year   # 연도만 가지고 그룹핑
 sr_closing_year = df.groupby(['close_year']).size()
 # print(df.head())
 # df.info()
-print(sr_closing_year)
+# print(sr_closing_year)
+df_group = sr_closing_year.reset_index()
+df_group.columns = ['year', 'count']
+
+print(df_group)
+
+import matplotlib.pyplot as plt
+plt.plot(df_group['year'], df_group['count'])
+plt.show()
