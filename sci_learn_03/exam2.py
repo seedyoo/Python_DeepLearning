@@ -14,3 +14,7 @@ df2 = df.apply(multilpy_columns, axis=1)
 df['s_sum'] = df2
 total = df['s_sum'].sum()
 print(total)
+senior = 2 * total / 50
+junior = total / 50
+print(senior)
+print(junior)
