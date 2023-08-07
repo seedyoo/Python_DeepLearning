@@ -26,3 +26,13 @@ print(x_test.shape)     # 38 => 총 150 개중
 
 # desionTree 훈련 생성
 dtree = DecisionTreeClassifier(random_state=42) # Depth 선택가능
+dtree.fit(x_train, y_train)
+
+# 정확도 확인
+accurcay = dtree.score(x_test, y_test)
+print('DT 알고리즘 정확도: ', accurcay)
+
+# 예측위한 샘플 데이터
+x_new = np.array([ [7.0, 2.0, 6.7, 0.4] ])
+predict = dtree.predict(x_new)
+print('dt를 통한 iris 예측값: ', iris['target_names'][predict])
