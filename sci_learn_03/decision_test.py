@@ -29,6 +29,13 @@ total_rainy_hot = total_outlook_hot - total_sunny_hot
 result_temp_hot = 1 - ( ( total_sunny_hot/total_outlook_hot )**2 + ( total_rainy_hot/total_outlook_hot )**2 )
 print('outlook_hot 노드에서 불순도: ', result_temp_hot)
 
-# 습도(humidity) 가 hight 일 때 날씨의 지니계수 계산
+# 습도(humidity) 가 high 일 때 날씨의 지니계수 계산
+total_outlook_high = df[df['humidity']=='high']['outlook'].size
 
+total_humi_high = df[df['humidity']=='high']
+total_sunny_high = total_humi_high[total_humi_high['outlook']=='sunny']['outlook'].size
+total_rainy_high = total_outlook_high - total_sunny_high
+
+result_humi_high = 1 - ( ( total_sunny_high/total_outlook_high )**2 + ( total_rainy_high/total_outlook_high )**2 )
+print('humidity_hight 노드에서 불순도: ', result_humi_high)
 
