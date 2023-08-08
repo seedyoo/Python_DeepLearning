@@ -25,5 +25,6 @@ print(word_idx)
 seqs = token.texts_to_sequences(test_sentence)  # 테스트데이터
 print(seqs)
 
-seqs_pad = pad_sequences(seqs)
+# seqs_pad = pad_sequences(seqs, padding='post')
+seqs_pad = pad_sequences(seqs, padding='pre', maxlen=6, truncating='post')
 print(seqs_pad)
