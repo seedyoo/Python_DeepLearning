@@ -1,0 +1,192 @@
+문제1 
+
+주사위를 2번 던졌을 때 랜덤하게 나오는 두 개의 숫자를 더하여 출력하는 코드를 구현하시오
+
+결과1
+
+주사위1: 5
+주사위2: 6
+두수의 합은: 11
+[해답]
+import random
+
+# 주사위를 2번 던져서 나온 숫자
+dice1 = random.randint(1, 6)
+dice2 = random.randint(1, 6)
+
+# 두 수의 합 계산
+total = dice1 + dice2
+
+# 결과 출력
+print("주사위1:", dice1)
+print("주사위2:", dice2)
+print("두 수의 합은:", total)
+
+문제2
+자연수 n이 입력으로 주어졌을 때
+만약 n이 짝수이면 "n is even"을, 홀수이면 "n is odd"를 출력하는 코드를 작성해 보세요.
+[해답]
+def check_even_or_odd(n):
+    if n % 2 == 0:
+        print(f"{n} is even")
+    else:
+        print(f"{n} is odd")
+
+# 자연수 입력 받기
+n = int(input("자연수를 입력하세요: "))
+check_even_or_odd(n)
+
+
+문제3
+파이썬 반복문을 이용하여 사각형을 출력하시오
+* * * * *
+* * * * *
+* * * * *
+* * * * *
+* * * * *
+
+[해답]
+rows = 5
+columns = 5
+
+for i in range(rows):
+    for j in range(columns):
+        print("*", end=" ")
+    print()
+
+문제4
+1~1000 사이의 정수 중에
+홀수인 값만 모두 더하여 출력하시오
+
+[해답]
+total = 0
+
+for num in range(1, 1001):
+    if num % 2 == 1:
+        total += num
+
+print("홀수의 합:", total)
+
+문제5
+st_name = ['송지우‘,’심현준‘,’윤호민‘]
+st_score = [93, 78, 89] 일 때 각 사람의 학점을 출력하시오
+90이상 학점 A
+80이상 학점 B
+70이상 학점 C
+60이상 학점 D
+나머지 F
+
+[해답]
+st_name = ['송지우', '심현준', '윤호민']
+st_score = [93, 78, 89]
+
+def get_grade(score):
+    if score >= 90:
+        return 'A'
+    elif score >= 80:
+        return 'B'
+    elif score >= 70:
+        return 'C'
+    elif score >= 60:
+        return 'D'
+    else:
+        return 'F'
+
+for i in range(len(st_name)):
+    name = st_name[i]
+    score = st_score[i]
+    grade = get_grade(score)
+    print(f"{name}의 학점: {grade}")
+
+문제6
+숫자와 문자가 섞인 문자열을 입력받아서 숫자가 아닌 문자의 개수를 구하시오
+
+[해답]
+input_str = input("문자열을 입력하세요: ")
+
+non_digit_count = 0
+
+for char in input_str:
+    if not char.isdigit(): # isdigit() 함수는 숫자를 체크 할 수 있다. (not은 반대)
+        non_digit_count += 1
+
+print("숫자가 아닌 문자의 개수:", non_digit_count)
+
+문제7
+문자열 str과 정수 n이
+주어집니다.
+
+str이 n번 반복된 문자열을
+만들어 출력하는 코드를 작성해 보세요.
+
+[해답]
+text = input("문자열을 입력하세요: ")
+n = int(input("반복 횟수를 입력하세요: "))
+
+result = text * n
+print(result)
+
+문제8
+리스트 자료형
+word = ['해바라기','나팔꽃, '장미', '무궁화', '코스모스',
+'접시꽃', '선인장, '제비꽃', '국화', '에델바이스']
+이중에서 이름의 길이가 같은 꽃들을 분리하여 출력하시오
+
+[해답]
+word = ['해바라기', '나팔꽃', '장미', '무궁화', '코스모스', '접시꽃', '선인장', '제비꽃', '국화', '에델바이스']
+
+# 이름의 길이가 같은 꽃들을 저장할 딕셔너리 생성
+flower_dict = {}
+
+# 이름의 길이를 기준으로 꽃들을 분리하여 딕셔너리에 저장
+for flower in word:
+    length = len(꽃)
+    if length in flower_dict:
+        flower_dict[length].append(꽃)
+    else:
+        flower_dict[length] = [flower]
+
+# 이름의 길이가 같은 꽃들 출력
+for length, flowers in flower_dict.items():
+    if len(flowers) > 1:
+        print(f"이름 길이가 {length}인 꽃들:", ', '.join(flowers))
+
+
+문제9　이건 나도 고민 중.. 이상하게 크롤링은 잘 못하겠네요. 정확한 규칙을 찾기 힘듬. 
+
+URL = "https://autobuff.co.kr/1962/“
+2022년 자동차 판매 순위를
+순위 5~1위와 이름을 가져와서 데이터를 출력하시오( BeautifulSoup를 사용함 )
+[해답]
+import requests
+from bs4 import BeautifulSoup
+
+URL = "https://autobuff.co.kr/1962/"
+
+response = requests.get(URL)
+soup = BeautifulSoup(response.content, "html.parser")
+
+# 2022년 자동차 판매 순위를 가지고 있는 HTML 요소를 찾음
+rankings_section = soup.find("div", class_="post-content")
+car_rankings = rankings_section.find_all("figure", class_="wp-block-image size-large")
+
+#　print(car_rankings)
+
+
+문제10
+[90, 60, 90, 70, 80, 60, 87, 67, 96, 78] 숫자 배열에서 전체 합계와 평균 및 최대값을 출력하시오
+[해답]
+lists = [90, 60, 90, 70, 80, 60, 87, 67, 96, 78]
+
+# 전체 합계 계산
+total = sum(lists)
+
+# 평균 계산
+average = total / len(lists)
+
+# 최대값 계산
+max_value = max(lists)
+
+print("전체 합계:", total)
+print("평균:", average)
+print("최대값:", max_value)
